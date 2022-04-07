@@ -48,9 +48,9 @@ and put here. If not, your path is incorrect.
 The files should have been listed with the list.files(path) command. If not, the directories are incorrect.
 
     # sort the order of the forward and reverse reads
-    fnFs <- sort(list.files(path, pattern="_R1_001_trimmed.fastq"))
-    
-    fnRs <- sort(list.files(path, pattern="_R2_001_trimmed.fastq"))
+    fnFs <- sort(list.files(path, pattern="_R1_001.fastq.gz"))
+
+    fnRs <- sort(list.files(path, pattern="_R2_001.fastq.gz"))
 
     # extract sample names from files
     sample.names <- sapply(strsplit(fnFs, "_"), `[`, 1)
