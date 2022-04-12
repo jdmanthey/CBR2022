@@ -32,6 +32,8 @@ Make sure after each "library" command that you do not get any errors otherwise 
     library(plyr)
     
     library(picante)
+    
+    library(microbiome)
 
 ### 4. Set up analysis
 
@@ -302,3 +304,13 @@ Use a relevant statistical test that was covered in class (or if you want, one w
 This will be different for each dataset and question, and will likely involve a little bit of trouble shooting. Feel free
 to ask questions or search the internet for solutions. I expect this may take up more time than many of the other parts
 of the project.
+
+### 16. Subset a phyloseq object to the core microbiome
+
+May be useful for some people's projects:
+	
+    ps_rel <- microbiome::transform(ps, "compositional")
+
+    ps_core <- core(ps_rel, detection = 0, prevalence = .3) 
+    
+
