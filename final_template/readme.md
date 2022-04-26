@@ -308,9 +308,22 @@ of the project.
 ### 16. Subset a phyloseq object to the core microbiome
 
 May be useful for some people's projects:
-	
-    ps_rel <- microbiome::transform(ps, "compositional")
 
-    ps_core <- core(ps_rel, detection = 0, prevalence = .3) 
+    ps_core <- core(ps, detection = 0, prevalence = .3) 
+    
+
+### 17. Composition plot by phylum
+
+This will help with readability of the composition plot:
+
+    # group by phylum for simplicity
+    phylumGlommed <- tax_glom(ps, "Phylum")
+    
+    # plot without facet wrap
+    plot_bar(phylumGlommed, x="Sample.ID", fill="Phylum") 
+    
+    # plot with facet wrap (with one of the traits (you'll need to change trait_name1 to an appropriate name based on your data)
+    plot_bar(phylumGlommed, x="Sample.ID", fill="Phylum") + facet_wrap(~trait_name1, scales="free_x")
+
     
 
